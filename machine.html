@@ -6,6 +6,7 @@
   <title>Daily Routine - Routine Machine</title>
   <link rel="stylesheet" href="CSS/style.css">
   <script defer src="js/nav.js"></script>
+  <script defer src="js/game.js"></script>
 </head>
 <body>
   <header>
@@ -20,8 +21,17 @@
     </nav>
   </header>
   <main class="container">
-    <h1>Routine Generator</h1>
-    <div id="machine-box"></div>
+    <div class="machine-panel">
+      <h2>Routine Decision Machine</h2>
+      <p>Not sure what to tackle next? Let the machine decide your next 25-minute sprint.</p>
+      <div class="status-screen" id="machine-screen">
+        <span id="machine-output">Ready to roll...</span>
+      </div>
+      <div class="machine-actions">
+        <button id="spin-btn" type="button">Pick My Next Task</button>
+        <button id="reset-btn" type="button" class="btn-secondary">Reset</button>
+      </div>
+    </div>
   </main>
   <footer>
     <p>&copy; 2026 My Routine. Built with semantic HTML & CSS.</p>

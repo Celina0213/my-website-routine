@@ -6,6 +6,7 @@
   <title>Daily Routine - Quotes</title>
   <link rel="stylesheet" href="CSS/style.css">
   <script defer src="js/nav.js"></script>
+  <script defer src="js/quotes.js"></script>
 </head>
 <body>
   <header>
@@ -20,8 +21,14 @@
     </nav>
   </header>
   <main class="container">
-    <h1>Daily Inspiration</h1>
-    <div id="quote-box"></div>
+    <div class="quote-card">
+      <h2>Daily Mindset Quote</h2>
+      <blockquote id="quote-display">"Consistency is the true foundation of mastery."</blockquote>
+      <cite id="quote-author">— Daily Wisdom</cite>
+      <div class="button-group">
+        <button id="next-quote-btn" type="button">Next Inspiration</button>
+      </div>
+    </div>
   </main>
   <footer>
     <p>&copy; 2026 My Routine. Built with semantic HTML & CSS.</p>
