@@ -85,6 +85,22 @@ h1 {
   color: var(--text-main);
 }
 
+main.container h1 {
+  position: relative;
+  padding-bottom: 0.6rem;
+}
+
+main.container h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 56px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+}
+
 p {
   color: var(--text-muted);
   margin-bottom: 1.5rem;
@@ -311,6 +327,69 @@ footer {
 .section-title {
   font-size: 1.5rem;
   margin: 2.5rem 0 1.25rem;
+}
+
+/* ===== Running beagle ===== */
+.beagle {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.5rem;
+  width: 88px;
+  height: 88px;
+  z-index: 50;
+  animation: run-bounce 0.55s ease-in-out infinite;
+}
+
+.beagle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.2);
+}
+
+.beagle::after {
+  content: "";
+  position: absolute;
+  left: 14%;
+  right: 14%;
+  bottom: -12px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(15, 23, 42, 0.2), transparent 70%);
+  animation: shadow-pulse 0.55s ease-in-out infinite;
+}
+
+.beagle-bubble {
+  position: absolute;
+  top: -10px;
+  left: -30px;
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2px 9px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  box-shadow: var(--shadow-sm);
+  opacity: 0;
+  animation: woof 4.5s ease-in-out infinite;
+}
+
+@keyframes run-bounce {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-8px) rotate(2deg); }
+}
+
+@keyframes shadow-pulse {
+  0%, 100% { transform: scaleX(1); opacity: 1; }
+  50% { transform: scaleX(0.7); opacity: 0.55; }
+}
+
+@keyframes woof {
+  0%, 55%, 100% { opacity: 0; transform: translateY(5px) scale(0.9); }
+  65%, 85% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 @media (max-width: 800px) {
