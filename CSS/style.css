@@ -392,6 +392,46 @@ footer {
   65%, 85% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
+/* ===== Quotes fullscreen stage ===== */
+.quote-stage {
+  position: relative;
+  min-height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.stage-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.35s ease;
+}
+
+.quote-stage .quote-card {
+  position: relative;
+  z-index: 1;
+  margin: 2rem;
+  border: none;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 20px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.25);
+  transition: background 0.4s ease;
+}
+
+.quote-stage .quote-card h2 {
+  color: var(--text-main);
+}
+
+.card-sky   { background: rgba(219, 234, 254, 0.72); }
+.card-mint  { background: rgba(209, 250, 229, 0.72); }
+.card-sea   { background: rgba(224, 242, 254, 0.72); }
+.card-sunset{ background: rgba(254, 243, 199, 0.72); }
+
 @media (max-width: 800px) {
   .hero {
     align-items: center;
