@@ -8,32 +8,29 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   const themes = [
-    { img: "assets/ghibli-sky.png", card: "card-sky" },
-    { img: "assets/ghibli-forest.png", card: "card-mint" },
-    { img: "assets/ghibli-sea.png", card: "card-sea" },
-    { img: "assets/ghibli-sunset.png", card: "card-sunset" }
+    "assets/ghibli-sky.png",
+    "assets/ghibli-forest.png",
+    "assets/ghibli-sea.png",
+    "assets/ghibli-sunset.png"
   ];
 
   const textEl = document.getElementById("quote-display");
   const authorEl = document.getElementById("quote-author");
   const btn = document.getElementById("next-quote-btn");
-  const stage = document.querySelector(".quote-stage");
-  const bgImg = document.querySelector(".stage-bg");
   const card = document.getElementById("quote-card");
 
   function applyRandomTheme() {
-    const t = themes[Math.floor(Math.random() * themes.length)];
-    themes.forEach(c => card.classList.remove(c.card));
-    card.classList.add(t.card);
-    bgImg.style.opacity = "0";
+    const img = themes[Math.floor(Math.random() * themes.length)];
+    card.style.opacity = "0";
     setTimeout(() => {
-      bgImg.src = t.img;
-      bgImg.style.opacity = "1";
-    }, 350);
+      card.style.backgroundImage = `url('${img}')`;
+      card.style.opacity = "1";
+    }, 300);
   }
 
-  if (btn && textEl && authorEl && stage && bgImg && card) {
-    applyRandomTheme();
+  if (btn && textEl && authorEl && card) {
+    card.style.backgroundImage = `url('${themes[0]}')`;
+    card.style.transition = "opacity 0.3s ease";
     btn.addEventListener("click", () => {
       const q = quoteBank[Math.floor(Math.random() * quoteBank.length)];
       textEl.textContent = `"${q.text}"`;
