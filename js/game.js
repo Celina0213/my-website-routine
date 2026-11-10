@@ -1,30 +1,43 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const tasks = [
-    "Write 1 semantic HTML section",
-    "Inspect CSS box-model in DevTools",
-    "Review Git commit history",
-    "Draft 3 personal goals",
-    "Organize project assets folder",
-    "Refactor nav links and check paths"
+  const ideas = [
+    "Write one diary sentence in German today.",
+    "Practice only backhand clears at badminton tonight.",
+    "Add one small animation to this website.",
+    "Review yesterday's lecture notes for 15 minutes.",
+    "Read 10 pages before bed — no phone.",
+    "Learn one German tongue twister.",
+    "Refactor one messy block of code.",
+    "Take a 20-minute walk without earphones.",
+    "Design one tiny thing you will throw away.",
+    "Write down tomorrow's single most important task."
   ];
 
-  const screen = document.getElementById("machine-output");
-  const spinBtn = document.getElementById("spin-btn");
-  const resetBtn = document.getElementById("reset-btn");
+  const lever = document.getElementById("lever");
+  const output = document.getElementById("machine-output");
+  const ticket = document.getElementById("idea-ticket");
+  const ticketNo = document.getElementById("ticket-no");
+  const ticketText = document.getElementById("ticket-text");
 
-  if (spinBtn && screen) {
-    spinBtn.addEventListener("click", () => {
-      screen.textContent = "Selecting task...";
+  let busy = false;
+
+  if (lever && output && ticket && ticketNo && ticketText) {
+    lever.addEventListener("click", () => {
+      if (busy) return;
+      busy = true;
+      lever.classList.add("pulled");
+      output.textContent = "Dispensing idea...";
+      ticket.classList.remove("popped");
+
       setTimeout(() => {
-        const randomTask = tasks[Math.floor(Math.random() * tasks.length)];
-        screen.textContent = `Target: ${randomTask}`;
-      }, 300);
-    });
-  }
-
-  if (resetBtn && screen) {
-    resetBtn.addEventListener("click", () => {
-      screen.textContent = "Ready to roll...";
+        const idea = ideas[Math.floor(Math.random() * ideas.length)];
+        const no = String(Math.floor(Math.random() * 900) + 100);
+        ticketNo.textContent = "No. " + no;
+        ticketText.textContent = idea;
+        ticket.classList.add("popped");
+        output.textContent = "Idea dispensed. Pull again for more.";
+        lever.classList.remove("pulled");
+        busy = false;
+      }, 800);
     });
   }
 });

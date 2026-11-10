@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daily Routine - Routine Machine</title>
-  <link rel="stylesheet" href="CSS/style.css?v=4">
+  <title>Daily Routine - Idea Machine</title>
+  <link rel="stylesheet" href="CSS/style.css?v=8">
   <script defer src="js/nav.js"></script>
-  <script defer src="js/game.js"></script>
+  <script defer src="js/game.js?v=2"></script>
 </head>
 <body>
   <header>
@@ -14,22 +14,30 @@
       <a href="index.html" class="logo">MyRoutine</a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
+        <li><a href="ideas.html">Ideas</a></li>
         <li><a href="quotes.html">Quotes</a></li>
         <li><a href="machine.html">Machine</a></li>
       </ul>
     </nav>
   </header>
   <main class="container">
-    <div class="machine-panel">
-      <h2>Routine Decision Machine</h2>
-      <p>Not sure what to tackle next? Let the machine decide your next 25-minute sprint.</p>
-      <div class="status-screen" id="machine-screen">
-        <span id="machine-output">Ready to roll...</span>
-      </div>
-      <div class="machine-actions">
-        <button id="spin-btn" type="button">Pick My Next Task</button>
-        <button id="reset-btn" type="button" class="btn-secondary">Reset</button>
+    <div class="idea-machine">
+      <h2>The Idea Machine</h2>
+      <p>Pull the lever and the machine will dispense one idea for your day.</p>
+      <div class="machine-body">
+        <div class="machine-screen">
+          <span id="machine-output">Pull the lever...</span>
+        </div>
+        <div class="machine-slot">
+          <div class="idea-ticket" id="idea-ticket">
+            <p class="ticket-no" id="ticket-no">No. ???</p>
+            <p class="ticket-text" id="ticket-text">Your idea will appear here.</p>
+          </div>
+        </div>
+        <button id="lever" type="button" aria-label="Pull the lever">
+          <span class="lever-stick"></span>
+          <span class="lever-knob"></span>
+        </button>
       </div>
     </div>
   </main>
